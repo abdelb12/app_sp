@@ -45,22 +45,26 @@ public class ArbitreDAOImpl implements ArbitreDAO {
 
 	@Override
 	public void addArbitre(Arbitre arbitre) {
-		String query = "INSERT INTO arbitre(prenom, nom, age, taille, date_naissance) VALUES(?, ?, ?, ?, ?)";
-		jdbcTemplate.update(query, arbitre.getPrenom(), arbitre.getNom(), arbitre.getAge(), arbitre.getTaille(), arbitre.getDateNaissance());
-		/*String query = "INSERT INTO arbitre(prenom, nom, age, taille, date_naissance) VALUES('" + arbitre.getPrenom() + "','" + arbitre.getNom() + "','" + arbitre.getAge() + "','" + arbitre.getTaille() + "','" + arbitre.getDateNaissance() + "')";
-		writeToFile(query);*/
+		/*String query = "INSERT INTO arbitre(prenom, nom, age, taille, date_naissance) VALUES(?, ?, ?, ?, ?)";
+		jdbcTemplate.update(query, arbitre.getPrenom(), arbitre.getNom(), arbitre.getAge(), arbitre.getTaille(), arbitre.getDateNaissance());*/
+		String query = "INSERT INTO arbitre(prenom, nom, age, taille, date_naissance) VALUES('" + arbitre.getPrenom() + "','" + arbitre.getNom() + "','" + arbitre.getAge() + "','" + arbitre.getTaille() + "','" + arbitre.getDateNaissance() + "')";
+		writeToFile(query);
 	}
 
 	@Override
 	public void updateArbitre(Arbitre arbitre) {
-		String query = "UPDATE arbitre SET prenom=?, nom=?, age=?, taille=?, date_naissance=? WHERE id_arbitre=?";
-		jdbcTemplate.update(query, arbitre.getPrenom(), arbitre.getNom(), arbitre.getAge(), arbitre.getTaille(), arbitre.getDateNaissance(), arbitre.getIdArbitre());
+		/*String query = "UPDATE arbitre SET prenom=?, nom=?, age=?, taille=?, date_naissance=? WHERE id_arbitre=?";
+		jdbcTemplate.update(query, arbitre.getPrenom(), arbitre.getNom(), arbitre.getAge(), arbitre.getTaille(), arbitre.getDateNaissance(), arbitre.getIdArbitre());*/
+		String query = "UPDATE arbitre SET prenom='" + arbitre.getPrenom() + "', nom='" + arbitre.getNom() +"', age='" + arbitre.getAge() + "', taille='" + arbitre.getTaille() + "', date_naissance='" + arbitre.getDateNaissance() + "' WHERE id_arbitre='" + arbitre.getIdArbitre() + "'";
+		writeToFile(query);
 	}
 
 	@Override
 	public void deleteArbitre(int id) {
-		String query = "DELETE FROM arbitre WHERE id_arbitre=?";
-		jdbcTemplate.update(query, id);
+		/*String query = "DELETE FROM arbitre WHERE id_arbitre=?";
+		jdbcTemplate.update(query, id);*/
+		String query = "DELETE FROM arbitre WHERE id_arbitre='" + id + "'";
+		writeToFile(query);
 	}
 
 	@Override
