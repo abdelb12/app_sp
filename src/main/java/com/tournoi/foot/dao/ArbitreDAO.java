@@ -11,5 +11,6 @@ public interface ArbitreDAO {
 	public void addArbitre(Arbitre arbitre);
 	public void updateArbitre(Arbitre arbitre);
 	public void deleteArbitre(int id);
+	public void validate();
 
 }

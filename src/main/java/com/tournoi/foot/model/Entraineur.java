@@ -1,5 +1,8 @@
 package com.tournoi.foot.model;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Entraineur {
 	private Integer idEntraineur;
 	private String prenom;

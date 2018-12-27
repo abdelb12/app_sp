@@ -24,6 +24,7 @@
      <th scope="row">Taille</th>
      <th scope="row">Poste</th>
      <th scope="row">Date de naissance</th>
+     <th scope="row">Équipe</th>
      <th scope="row">Modifier</th>
      <th scope="row">Supprimer</th>
     </tr>
@@ -37,6 +38,7 @@
       <td>${joueur.taille } cm</td>
       <td>${joueur.poste }</td>
       <td>${joueur.dateNaissance }</td>
+      <td></td>
       <td>
        <spring:url value="/joueur/update/${joueur.idJoueur }" var="updateURL" />
        <a class="btn btn-primary" href="${updateURL }" role="button">Modifier</a>

@@ -3,6 +3,7 @@ package com.tournoi.foot.dao;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
@@ -22,9 +23,11 @@ public class JoueurDAOImpl implements JoueurDAO {
 	@Override
 	public List<Joueur> getAllJoueur() {
 		String query = "SELECT * FROM joueur";
-		RowMapper<Joueur> rowMapper = new JoueurRowMapper();
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		RowMapper<Joueur> rowMapper = context.getBean("joueurRowMapper", JoueurRowMapper.class);
 		List<Joueur> list = jdbcTemplate.query(query, rowMapper);
 		System.out.println(list.toString());
+		context.close();
 		return list;
 	}
 

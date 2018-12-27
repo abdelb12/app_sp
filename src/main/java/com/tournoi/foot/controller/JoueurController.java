@@ -3,6 +3,7 @@ package com.tournoi.foot.controller;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -40,10 +41,12 @@ public class JoueurController {
 	
 	@RequestMapping(value="/add", method=RequestMethod.GET)
 	public ModelAndView addJoueur() {
-		ModelAndView model = new ModelAndView();
-		Joueur joueur = new Joueur();
+		ModelAndView model = new ModelAndView();		
+		ClassPathXmlApplicationContext context = new ClassPathXmlApplicationContext("applicationContext.xml");
+		Joueur joueur = context.getBean("joueur", Joueur.class);
 		model.addObject("joueurForm", joueur);
 		model.setViewName("joueur_form");
+		context.close();
 		return model;
 	}
 	
