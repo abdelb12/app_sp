@@ -11,5 +11,6 @@ public interface JoueurDAO {
 	public void addJoueur(Joueur joueur);
 	public void updateJoueur(Joueur joueur);
 	public void deleteJoueur(int id);
+	void validate();
 
 }
